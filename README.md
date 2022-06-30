@@ -14,6 +14,7 @@ O Carro deve ser cadastrado, por padrão com disponibilidade.
 Deve ser possível listar todos os carros disponíveis.
 Deve ser possível listar todos os carros disponíveis pelo nome da categoria.
 Deve ser possível listar todos os carros disponíveis pelo nome da marca.
+Deve ser possível listar todos os carros disponíveis pelo nome da carro.
 
 **RN**
 O usuário não precisar estar logado no sistema.
