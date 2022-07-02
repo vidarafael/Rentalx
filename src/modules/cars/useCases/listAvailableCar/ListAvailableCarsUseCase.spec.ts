@@ -43,8 +43,6 @@ describe('List cars', () => {
       brand: "Car_brand"
     })
 
-    console.log("cars by brand:", cars)
-
     expect(cars).toEqual([car])
   })
 
