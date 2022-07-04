@@ -1,24 +1,27 @@
-import { inject, injectable } from "tsyringe";
-import { ICarsImagesRepository } from "@modules/cars/repositories/ICarsImagesRepository";
+import { Request, Response } from 'express';
+import { container } from 'tsyringe';
+import { UploadCarImagesUseCase } from './UploadCarImagesUseCase';
 
-interface IRequest {
-  car_id: string;
-  images_name: string[];
+interface IFiles {
+  filename: string;
 }
 
-@injectable()
-class UploadCarImagesUseCase {
-  constructor(
-    @inject("CarsImagesRepository")
-    private carsImagesRepository: ICarsImagesRepository
-  ) { }
+class UploadCarImagesController {
+  async handle(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const images = req.files as IFiles[]
 
-  async execute({ car_id, images_name }: IRequest) {
-    images_name.map(async (image) => {
-      await this.carsImagesRepository.create(car_id, image)
+    const uploadCarImagesUseCase = container.resolve(UploadCarImagesUseCase)
+
+    const images_name = images.map((file) => file.filename)
+
+    await uploadCarImagesUseCase.execute({
+      car_id: id,
+      images_name
     })
-  }
 
+    return res.status(201).send();
+  }
 }
 
-export { UploadCarImagesUseCase }
+export { UploadCarImagesController }

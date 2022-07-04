@@ -6,7 +6,7 @@ import { ensureAuthenticated } from "@shared/infra/http/middlewares/ensureAuthen
 import { CreateCarController } from "@modules/cars/useCases/createCar/CreateCarController";
 import { ListAvailableCarsController } from "@modules/cars/useCases/listAvailableCar/ListAvailableCarsController";
 import { CreateCarSpecificationController } from "@modules/cars/useCases/createCarSpecification/CreateCarSpecificationController";
-import { UploadCarImagesController } from "@modules/cars/useCases/uploadCarImages/UploadCarImagesUseCase";
+import { UploadCarImagesController } from "@modules/cars/useCases/uploadCarImages/UploadCarImagesController";
 
 const carsRoutes = Router()
 
