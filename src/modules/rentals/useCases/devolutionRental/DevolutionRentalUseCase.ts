@@ -42,8 +42,6 @@ class DevolutionRentalUseCase {
       rental.start_date,
       this.dateProvider.dateNow()
     )
-    console.log("DateNow: " + dateNow)
-    console.log("Daily: ", daily)
 
     if (daily <= 0) {
       daily = minimum_daily
@@ -53,8 +51,6 @@ class DevolutionRentalUseCase {
       rental.expected_return_date,
       dateNow
     )
-
-    console.log("Delay: ", delay)
 
     let total = 0
 
